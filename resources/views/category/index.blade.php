@@ -1,5 +1,5 @@
 <x-layout>
-    <x-slot:title>Category</x-slot:title>
+    <x-slot:title>Categories</x-slot:title>
 
     <div class="container">
         <div class="d-flex mb-2 justify-content-end">

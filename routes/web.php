@@ -30,6 +30,18 @@ Route::get('/products/edit', function () {
     return view('product.edit');
 });
 
+Route::get('/users', function () {
+    return view('user.index');
+});
+
+Route::get('/users/create', function () {
+    return view('user.create');
+});
+
+Route::get('/users/edit', function () {
+    return view('user.edit');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
