@@ -16,30 +16,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Snack</td>
-                        <td>Aktif</td>
-                        <td align="right">
-                            <a href="/categories/edit" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Minuman Dingin</td>
-                        <td>Aktif</td>
-                        <td align="right">
-                            <a href="/categories/edit" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Makanan Berat</td>
-                        <td>Aktif</td>
-                        <td align="right">
-                            <a href="/categories/edit" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </td>
-                    </tr>
+                    @foreach ($categories as $category)
+                        <tr>
+                            <td>{{ $category->name }}</td>
+                            <td>Aktif</td>
+                            <td align="right">
+                                <a href="{{ route('categories.edit', ['category' => $category->id]) }}"
+                                    class="btn btn-sm btn-primary">Edit</a>
+                                <button class="btn btn-sm btn-danger">Hapus</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

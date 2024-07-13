@@ -33,21 +33,30 @@
     <div class="full d-flex justify-content-center align-items-center">
         <div class="login-card card">
             <div class="card-body">
-                <h4 class="fw-bold">Cashed</h4>
-                <div class="mb-3">Masukkan detail akun anda untuk memulai</div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Masukkan email anda">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleFormControlInput1"
-                        placeholder="Masukkan password anda">
-                </div>
-                <div class="d-grid">
-                    <button type="button" class="btn btn-dark">Masuk</button>
-                </div>
+                <form action="/login" method="post" novalidate>
+                    @csrf
+                    <h4 class="fw-bold">Cashed</h4>
+                    <div class="mb-3">Masukkan detail akun anda untuk memulai</div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                            placeholder="Masukkan email anda" name="email" value="{{ old('email') }}">
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Masukkan password anda"
+                            name="password">
+                        @error('password')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-dark">Masuk</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
