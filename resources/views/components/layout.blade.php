@@ -31,11 +31,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/">Dashboard</a>
-                    <a class="nav-link" href="#">Order</a>
-                    <a class="nav-link" href="/categories">Categories</a>
-                    <a class="nav-link" href="/products">Products</a>
-                    <a class="nav-link" href="/users">Users</a>
+                    <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" aria-current="page"
+                        href="/">Dashboard</a>
+                    <a class="nav-link {{ request()->routeIs('order') ? 'active' : '' }}" href="#">Order</a>
+                    <a class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}"
+                        href="/categories">Categories</a>
+                    <a class="nav-link {{ request()->routeIs('products.index') ? 'active' : '' }}"
+                        href="/products">Products</a>
+                    <a class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}" href="/users">Users</a>
                 </div>
             </div>
         </div>

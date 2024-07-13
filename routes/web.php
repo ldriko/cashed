@@ -10,7 +10,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('dashboard');
-    });
+    })->name('dashboard');
 
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/create', [CategoryController::class, 'create']);
@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/products', function () {
         return view('product.index');
-    });
+    })->name('products.index');
 
     Route::get('/products/create', function () {
         return view('product.create');
@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/users', function () {
         return view('user.index');
-    });
+    })->name('users.index');
 
     Route::get('/users/create', function () {
         return view('user.create');
