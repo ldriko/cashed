@@ -29,7 +29,7 @@
                         href="{{ route('dashboard') }}">
                         Dashboard
                     </a>
-                    <a class="nav-link {{ request()->routeIs('order') ? 'active' : '' }}" href="#">
+                    <a class="nav-link" href="#">
                         Order
                     </a>
                     <a class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}"
@@ -40,8 +40,7 @@
                         href="{{ route('products.index') }}">
                         Products
                     </a>
-                    <a class="nav-link {{ request()->routeIs('users.index') ? 'active' : '' }}"
-                        href="{{ route('users.index') }}">
+                    <a class="nav-link" href="#">
                         Users
                     </a>
                 </div>
