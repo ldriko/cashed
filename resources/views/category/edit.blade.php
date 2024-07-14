@@ -9,17 +9,18 @@
                         <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="post">
                             @csrf
                             @method('put')
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nama</label>
-                                <input type="text" class="form-control" id="name"
-                                    placeholder="Masukkan nama category" name="name" value="{{ $category->name }}">
-                            </div>
-                            <div class="form-check form-switch">
+
+                            <x-text-input label="Nama" name="name" placeholder="Masukkan nama category"
+                                value="{{ old('name', $category->name) }}"></x-text-input>
+
+                            <div class="form-check form-switch mb-3">
                                 <input class="form-check-input" type="checkbox" role="switch" id="active"
-                                    name="active" checked>
+                                    name="active" @checked((!old() && $category->active) || old('active') == 'on')>
                                 <label class="form-check-label" for="active">Aktif</label>
                             </div>
-                            <div class="d-flex justify-content-end">
+
+                            <div class="d-flex justify-content-between">
+                                <a href="{{ route('categories.index') }}" class="btn btn-danger">Batal</a>
                                 <button type="submit" class="btn btn-dark">Simpan</button>
                             </div>
                         </form>
