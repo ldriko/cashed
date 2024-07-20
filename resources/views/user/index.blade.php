@@ -18,33 +18,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Ryan</td>
-                        <td>ryan@example.com</td>
-                        <td>Aktif</td>
-                        <td align="right">
-                            <a href="/users/edit" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Sam</td>
-                        <td>sam@example.com</td>
-                        <td>Aktif</td>
-                        <td align="right">
-                            <a href="/users/edit" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Karen</td>
-                        <td>karen@example.com</td>
-                        <td>Aktif</td>
-                        <td align="right">
-                            <a href="/users/edit" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger">Hapus</button>
-                        </td>
-                    </tr>
+                    @foreach ($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>Aktif</td>
+                            <td align="right">
+                                <a href="{{ route('users.edit', ['user' => $user->id]) }}"
+                                    class="btn btn-sm btn-primary">Edit</a>
+                                <button class="btn btn-sm btn-danger">Hapus</button>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

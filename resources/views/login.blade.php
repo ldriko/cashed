@@ -35,8 +35,10 @@
             <div class="card-body">
                 <form action="/login" method="post" novalidate>
                     @csrf
+
                     <h4 class="fw-bold">Cashed</h4>
                     <div class="mb-3">Masukkan detail akun anda untuk memulai</div>
+
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
@@ -45,6 +47,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Masukkan password anda"
@@ -53,6 +56,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
                     <div class="d-grid">
                         <button type="submit" class="btn btn-dark">Masuk</button>
                     </div>
