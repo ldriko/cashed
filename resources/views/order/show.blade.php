@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <a href="{{ route('orders.index') }}" class="btn btn-dark">Kembali</a>
+                <a href="#" class="btn btn-dark">Kembali</a>
             </div>
         </div>
     </div>

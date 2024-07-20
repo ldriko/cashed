@@ -4,10 +4,6 @@
             <div class="col col-lg-4">
                 <div class="card">
                     <div class="card-body border-bottom fw-bold">
-                        <a href="{{ route('orders.index') }}" class="text-decoration-none text-black me-2">
-                            <i class="bi bi-arrow-left"></i>
-                        </a>
-
                         Product
                     </div>
                     <div class="card-body">
