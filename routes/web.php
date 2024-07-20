@@ -17,4 +17,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('products', ProductController::class);
     Route::resource('users', UserController::class);
+
+    Route::get('/orders', fn() => view('order.index'))
+        ->name('orders.index');
+    Route::get('/orders/checkout', fn() => view('order.checkout'))
+        ->name('orders.checkout');
+    Route::get('/orders/detail', fn() => view('order.detail'))
+        ->name('orders.detail');
+    Route::get('/orders/{order}', fn() => view('order.show'))
+        ->name('orders.show');
 });
