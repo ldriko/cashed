@@ -40,7 +40,7 @@
                         href="{{ route('products.index') }}">
                         Products
                     </a>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {{ request()->routeIs('users.index') }}" href="{{ route('users.index') }}">
                         Users
                     </a>
                 </div>
