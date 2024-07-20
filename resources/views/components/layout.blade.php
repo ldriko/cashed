@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -19,18 +21,21 @@
     <nav class="navbar navbar-expand-lg bg-black navbar-dark">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">Cashed</a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
                         href="{{ route('dashboard') }}">
                         Dashboard
                     </a>
-                    <a class="nav-link" href="#">
-                        Order
+                    <a class="nav-link {{ request()->routeIs('orders.index') ? 'active' : '' }}"
+                        href="{{ route('orders.index') }}">
+                        Orders
                     </a>
                     <a class="nav-link {{ request()->routeIs('categories.index') ? 'active' : '' }}"
                         href="{{ route('categories.index') }}">
@@ -45,6 +50,12 @@
                     </a>
                 </div>
             </div>
+
+            <div class="text-white me-4">{{ auth()->user()->name }}</div>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
         </div>
     </nav>
 
