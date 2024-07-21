@@ -10,9 +10,22 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::all();
+        $ordersQuery = Order::query();
+
+        if ($request->search) {
+            $ordersQuery->where('customer', 'like', "%{$request->search}%")
+                ->orWhere('id', 'like', "%{$request->search}%");
+        }
+
+        if ($request->start_date && $request->end_date) {
+            $ordersQuery->where('created_at', '>=', $request->start_date)
+                ->where('created_at', '<=', $request->end_date . ' 23:59:59');
+        }
+
+        $orders = $ordersQuery->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('order.index', [
             'orders' => $orders,
